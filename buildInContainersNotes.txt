@@ -1,0 +1,14 @@
+List:
+    internally implemented as a dynamic array (Ordered Sequence of Pointers / Memory Addresses to Python Objects).
+    Pointers - all same size
+    Reallocate (resize), copy to new block (maintain relative positions), deallocate (free old block).
+    Resize - initial Size * scaling factor + constant.
+
+Operation	    Example	Time            Complexity	        Reason		
+Index	        my_list[i]	            O(1)	            Direct pointer calculation.		
+Append	        my_list.append(x)	    O(1) (Amortized)	Usually just adds to the end; occasional O(N) resize.		
+Pop from End    my_list.pop()	        O(1)	            No shifting of elements required.		
+Insert	        my_list.insert(0, x)    O(N)	            All subsequent elements must be shifted right.		
+Pop from Start	my_glist.pop(0)	        O(N)	            All subsequent elements must be shifted left.		
+Search	        x in my_list	        O(N)	            Linear scan from the beginning is required.		
+
