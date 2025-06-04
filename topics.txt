@@ -1,0 +1,4 @@
+What is  yield?
+What is __iter__ for LinkedList class? When to apply?
+How to raise IndexError?
+Define custom comparators for classTypes. When?
