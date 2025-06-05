@@ -1,0 +1,35 @@
+List:
+    internally implemented as a dynamic array (Ordered Sequence of Pointers / Memory Addresses to Python Objects).
+    Pointers - all same size
+    Reallocate (resize), copy to new block (maintain relative positions), deallocate (free old block).
+    Resize - initial Size * scaling factor + constant.
+
+Operation	    Example	Time            Complexity	        Reason		
+Index	        my_list[i]	            O(1)	            Direct pointer calculation.		
+Append	        my_list.append(x)	    O(1) (Amortized)	Usually just adds to the end; occasional O(N) resize.		
+Pop from End    my_list.pop()	        O(1)	            No shifting of elements required.		
+Insert	        my_list.insert(0, x)    O(N)	            All subsequent elements must be shifted right.		
+Pop from Start	my_glist.pop(0)	        O(N)	            All subsequent elements must be shifted left.		
+Search	        x in my_list	        O(N)	            Linear scan from the beginning is required.		
+
+Dict:
+    Standard dict (Built-in)
+    When to use: This should be your default choice for most situations. It's a general-purpose, highly optimized hash map.
+    Key Features:
+        Stores key-value pairs.
+        Fast lookups, insertions, and deletions (average O(1)).
+        Maintains insertion order (guaranteed since Python 3.7, common in CPython 3.6). 
+            This means if you iterate over the dictionary, you'll get items in the order they were added.
+
+defaultDict:
+    Use defaultdict when its ability to handle missing keys with a default factory significantly \
+    simplifies your code and avoids lots of \
+    if key in D: checks.
+
+OrderedDict:
+    comparison (==) considers order. Two OrderedDict instances are only equal if they have the same items in the same order. 
+    Standard dict equality only cares about the key-value pairs, not order.
+    - It has a move_to_end(key, last=True) method to reorder items.
+    - *** popitem(last=True) can pop from either end (if last=False, pops from the beginning like a FIFO queue). 
+    Standard dict.popitem() always removes the last inserted item (LIFO).
+
